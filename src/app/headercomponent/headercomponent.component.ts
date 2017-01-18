@@ -11,5 +11,5 @@ export class HeadercomponentComponent implements OnInit {
 
   ngOnInit() {
   }
-
+navItems:Array<String>;
 }
