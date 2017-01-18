@@ -7,9 +7,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeadercomponentComponent implements OnInit {
 
-  constructor() { }
+  constructor() {
+     
+this.navItems=["Home","Register","Login"];
+  }
 
   ngOnInit() {
   }
-navItems:Array<String>;
+  navItems:Array<String>;
 }

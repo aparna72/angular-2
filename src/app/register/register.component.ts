@@ -14,9 +14,9 @@ export class RegisterComponent implements OnInit {
 
 
   }
-  submitForm(form: any): void {
+ submitForm(form: any): void {
     console.log('Form Data: ');
     console.log(form);
-  }
+ }
 
 }
