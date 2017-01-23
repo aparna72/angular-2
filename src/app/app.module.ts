@@ -10,6 +10,7 @@ import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { ProductsComponent } from './products/products.component';
+import { ServicenameService } from './app/servicename.service';
 
 
 @NgModule({
@@ -37,7 +38,7 @@ import { ProductsComponent } from './products/products.component';
     ])
 
   ],
-  providers: [],
+  providers: [ServicenameService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

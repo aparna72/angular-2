@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder,FormGroup,Validators} from '@angular/forms';
+import { ServicenameService } from '../app/servicename.service';
 
 @Component({
   selector: 'app-register',
@@ -16,7 +17,7 @@ export class RegisterComponent implements OnInit {
       'firstName' : '',
       'lastName' : '',
       'gender' : 'Female',
-      
+
     })
    }
 
@@ -26,7 +27,7 @@ export class RegisterComponent implements OnInit {
   }
  submitForm(form: any): void {
     console.log('Form Data: ');
-    console.log(form);
+    console.log(value);
  }
 
 }
