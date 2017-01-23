@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder,FormGroup,Validators} from '@angular/forms';
-import { ServicenameService } from '../app/servicename.service';
-
+import { ServicenameService } from './servicename.service';
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
@@ -14,9 +13,9 @@ export class RegisterComponent implements OnInit {
   constructor(fb: Frombuilder) {
 
     this.register = fb.group({
-      'firstName' : '',
-      'lastName' : '',
-      'gender' : 'Female',
+      'firstName' : [null,Validators.required],
+      'lastName' : [null,Validators.required],
+      'gender' : [null,Validators.required],
 
     })
    }
@@ -26,7 +25,6 @@ export class RegisterComponent implements OnInit {
 
   }
  submitForm(form: any): void {
-    console.log('Form Data: ');
     console.log(value);
  }
 

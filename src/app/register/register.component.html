@@ -2,33 +2,35 @@
   <h2>Reactive Driven Form</h2>
   <!-- Here we are declaring a local variable called “form” and setting it to an instance of ngForm. This is very important. Now our local form variable becomes of type FormGroup allowing us access to the FormGroup API’s on this local variable. We use this in the ngSubmit event where we send the value of the form via form.value -->
   <form [formgroup]='register' (ngSubmit)="submitForm(register.value)">
-    <div class="form-group">
+    <div class="form-group" [ngClass]="{'has-error':!register.controls['firstName'].valid}">
       <label>First Name:</label>
       <!-- Since we are working with template driven forms, we can use the ngModel directive to capture the values of our forms. One thing to note if you are coming from Angular 1.x. Using ngModel as shown below creates a one-way data binding, so once we hit submit the data is only sent to the controller. If we wanted to use two-way data binding, we would have to wrap the ngModel in [()] and assign an attribute to it. Also the name of the field corresponds to the name attribute so our first input will be firstName. -->
-      <input type="text" class="form-control" placeholder="John" [formControl]="register.controls['firstName']"
+      <input type="text" class="form-control" placeholder="John" [formControl]="register.controls['firstName']">
     </div>
-    <div class="form-group">
+    <div class="form-group" [ngClass]="{'has-error':!register.controls['lastName'].valid}">
+        <label>Last Name</label>>
       <label>Last Name</label>
-      <input type="text" class="form-control" placeholder="Doe" name="lastName" ngModel required>
+      <input type="text" class="form-control" placeholder="Doe" formControl]="register.controls['lastName']" >
     </div>
-    <div class="form-group">
+    <div class="form-group" [ngClass]="{'has-error':!register.controls['gender'].valid}">
       <label>Gender</label>
     </div>
-
+<div class="alert alert-danger" *ngIf="!register.controls['gender'].valid">You must select a gender.</div>
+      </div>
     <div class="radio">
       <label>
-        <input type="radio" name="gender" value="Male" ngModel>
+        <input type="radio" name="gender" value="Male" [formControl]="register.controls['gender']">
         Male
       </label>
     </div>
     <div class="radio">
       <label>
-        <input type="radio" name="gender" value="Female" ngModel>
+        <input type="radio" name="gender" value="Female" [formControl]="register.controls['gender']">
         Female
       </label>
     </div>
     <div class="form-group">
-      <button type="submit" class="btn btn-default">Submit</button>
+      <button type="submit" class="btn btn-default  [disabled]="!register.valid">Submit</button>
     </div>
   </form>
   </div>
