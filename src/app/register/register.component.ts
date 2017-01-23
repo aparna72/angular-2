@@ -7,25 +7,34 @@ import { ServicenameService } from './servicename.service';
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent implements OnInit {
-
-  register: FromGroup;
-
-  constructor(fb: Frombuilder) {
-
-    this.register = fb.group({
+constructor(fb:FromBuilder,public ServicenameService:ServicenameService ) {
+      this.register = fb.group({
       'firstName' : [null,Validators.required],
       'lastName' : [null,Validators.required],
       'gender' : [null,Validators.required],
 
     })
-   }
+    
+  }
+  Countries:Array<any>
+  ngOnInit(){
+    this.ServicenameService.getCountriesfromapi().then(response=>(
+      this.countries=response.Countries;
+      console.log(this.Countries));
+  }
 
-  ngOnInit() {
-
+register={
 
   }
- submitForm(form: any): void {
-    console.log(value);
+  registerForm:FormGroup
+ registerUser(){
+   console.log(this.register);
  }
-
+ submitForm(form:any){
+   console.log(form);
+ }
 }
+
+
+    
+
